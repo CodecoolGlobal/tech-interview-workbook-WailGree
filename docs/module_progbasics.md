@@ -5,17 +5,35 @@
 ### Data structures
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
+The purpose of a list/array, is to store different variables, close to each other. Like names.
+Methods:
+Append method = next element becomes the list's member
+Count method = counts number of elements in list
+Extend method = same as append, but with multiple elements at once
+Insert method = like append, except instead of putting to the end, inserts to the given index
+Index method = returns index of something that is in list. if present multiple times returns first exception.
 #### What is the difference between a list/array and a set?
+While lists'/arrays' elements can be changed even after declaration, set's can't. Once declared, they stay the same. Also, multiplications. In lists/arrays they can happen. In sets they will be deleted uppon occurence.
 #### What is the purpose and methods of a dictionary/map data structure?
-
+Purpose is storing key-value pairs. Storing values, with easier way to index, instead of just numbers. Like phone numbers to store, based on their owners' names.
+Methods:
+Get method = returns value based on key or None if it doesn't exist.
+Update method = much like append in lists. Adds several items to the dictionary once.
+Keys method = returns the keys of the dictionary.
+Values method =  returns the values of the dictionary.
+Items method = returns both the keys and values of the dictionary.
 ### Algorithms
 
 #### Fibonacci sequences. Write a method (or pseudo code), that generates the Fibonacci sequences.
+We need a list. It's first 2 elements, being 0 and 1. The next element always will be the sum of the 2 latest element. The sum happens 5-10 times. Done.
 #### How do you find a max value in a list/array if you can’t use any built-in functions?
+You go through the list/array once. Each time you go through an element, check if that element is higher than the last higher, which is stored in a variable. Once done the variable contains the highest number.
 #### How do you find the average of values in a list/array if you can’t use any built-in functions?
+You go through the list/array once. While going through it count the length of it, and sum the values. Doing both in seperate variables. Once done, divide the sum by the count. The outcome is the avarage.
 #### What do we call an *in-place* sort?
+Sorting a variable, in-place. Meaning not giving it's sorted outcome to any other variable at all.
 #### Explain an algorithm which sorts a list!
-
+The algorith goes through the list, as many times as the length of the list is. Each time, if check for the element, that is highest, but not higher than the one, that was last time highest. First time of course will look for highest one. And put it before the highest one. This is how to sort in descending order.
 ### Programming paradigms - procedural
 
 #### What is the call stack?
