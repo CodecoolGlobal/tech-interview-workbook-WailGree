@@ -253,7 +253,7 @@ print("The List Items after Modulus =  ", mod)
 print("The List Items after Exponent =  ", expo)
 
 output:
-The List Items after Merging =   [10, 20, 30]
+The List Items after Merging =   [10, 20, 30, 5, 2, 3]
 The List Items after Addition =   [15, 22, 33]
 The List Items after Subtraction =   [5, 18, 27]
 The List Items after Multiplication =   [50, 40, 90]
