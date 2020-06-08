@@ -318,7 +318,7 @@ genexpr = ('Hello' for i in range(3))
 
 **List Comprehension vs Generator Expressions:**
 
-*list comprehension returns a list []
+*List comprehension returns a list []
 Generator expression returns an object that can be iterated through ()*
 
 *The generator yields one item at a time and generates item only when in demand.
@@ -329,6 +329,7 @@ Whereas, in a list comprehension, Python reserves memory for the whole list.
 
 *It won't change the result of the program. It can help the understanding of a code if it's ordered well.
 The calling of the functions is what matters.*
+
 #### What does unpacking mean in Python?
 
 *Unpacking in Python refers to an operation that consists of assigning an iterable of values to a tuple (or list ) of variables in a single assignment statement. As a complement, the term packing can be used when we collect several values in a single variable using the iterable unpacking operator.*
@@ -572,7 +573,7 @@ man commandname
 1. **with curl:**
     1. *sudo apt install curl*
     2. *curl –O [URL]*
-    3. *curl –o [filename] [URL] # save with diffrent filename*
+    3. *curl –o [filename] [URL] # save with different filename*
     4. *curl -O [URL1] -O [URL2]*
 2. **with wget**
     1. *sudo apt-get install wget*
