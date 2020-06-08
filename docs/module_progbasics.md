@@ -6,7 +6,7 @@
 
 #### What is the purpose of a list (array in some programming languages) data structure? Name some methods of it!
 
-*The purpose of a list/array, is to store different variables, close to each other. Like names.*
+*The purpose of a list/array, is to store different values, close to each other. Like names.*
 
 Methods:
 1. **list():** *creates a list in Python.* **list([iterable])**
@@ -226,12 +226,15 @@ list:  listname[0:2] [:4] [1:-1] [:]
 ```Python
 NumList1 = [10, 20, 30]
 NumList2 = [5, 2, 3]
+add_lists = []
 add = []
 sub = []
 multi = []
 div = []
 mod = []
 expo = []
+
+add_lists = NumList1 + NumList2
 
 for j in range(3):
     add.append( NumList1[j] + NumList2[j])
@@ -241,6 +244,7 @@ for j in range(3):
     mod.append( NumList1[j] % NumList2[j])
     expo.append( NumList1[j] ** NumList2[j])
 
+print("\The List Items after Merging = ", add_lists)
 print("\nThe List Items after Addition =  ", add)
 print("The List Items after Subtraction =  ", sub)
 print("The List Items after Multiplication =  ", multi)
@@ -249,6 +253,7 @@ print("The List Items after Modulus =  ", mod)
 print("The List Items after Exponent =  ", expo)
 
 output:
+The List Items after Merging =   [10, 20, 30]
 The List Items after Addition =   [15, 22, 33]
 The List Items after Subtraction =   [5, 18, 27]
 The List Items after Multiplication =   [50, 40, 90]
@@ -394,13 +399,7 @@ Remote repos only comes into play, when when it comes to sharing data with your 
 
 #### Why does a merge conflict occur?
 
-[source](https://www.atlassian.com/git/tutorials/using-branches/merge-conflicts)
-[source](https://dzone.com/articles/merge-conflict-everything-you-need-to-know)
-
-1. *Merge incoming changes from remote branch to the local branch*
-2. *Merge outgoing changes from local branch to the remote branch*
-3. *Merge changes in one local branch to another local branch*
-4. *Merge changes in one remote branch to another remote branch*
+*A conflict arises when two separate branches have made edits to the same line in a file, or when a file has been deleted in one branch but edited in the other.*
 
 #### Through what series of commands could you put a new file into a remote repository connected to your existing local repository?
 
