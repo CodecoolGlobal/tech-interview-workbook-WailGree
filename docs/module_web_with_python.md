@@ -38,16 +38,54 @@ Try…catch…finally database resource management.*
 can be handled with exception in the case that the code can not accept just the right one.*
 
 ### Security
+
 #### What is SQL injection? How to protect an application against it?
+*An SQL injection is a computer attack in which malicious code is embedded in a poorly-designed application and then passed to the backend database.*
+
+*You can prevent SQL Injection vulnerabilities in web applications by utilizing parameterized database queries with bound, typed parameters and careful use of parameterized stored procedures in the database.*
+
 #### What is XSS? How to protect an application against it?
+*`Cross-site Scripting (XSS)` is a client-side code injection attack. The attacker aims to execute malicious scripts in a web browser of the victim by including malicious code in a legitimate web page or web application. Commonly used for Cross-site Scripting attacks are forums, message boards, and web pages that allow comments.*
+
+*To protect against stored XSS attacks, make sure any dynamic content coming from the data store cannot be used to inject JavaScript on a page.*
+  - *Whitelist Values*
+  - *HTTP-only Cookies : meaning that cookies will be received, stored, and sent by the browser, but cannot be modified or read by JavaScript.*
+  - *Disallow the characters – especially `<` and `>` characters – from being rendered*
+
 #### How to properly store passwords?
+*You have to hash them(salting them is also recommended) and then store the outcome in a database.*
+
 #### What is HTTPS?
+*Hypertext Transfer Protocol Secure (HTTPS) is an extension of the Hypertext Transfer Protocol (HTTP). It is used for secure communication over a computer network, and is widely used on the Internet. It protects against __man-in-the-middle__ attacks.*
+
 #### What is encryption and decryption?
+*Encryption:<br>
+The process of translating plain text data (plaintext) into something that appears to be random and meaningless (ciphertext).*
+
+*Decryption:<br>
+The process of converting ciphertext back to plaintext.*
+
 #### What is hashing?
+*A hash function is where a computer takes an input of any length and content (e.g. letters, numbers, and symbols) and uses a mathematical formula to chop it, mix it up, and produce an output of a specific length.*
 #### What is the difference between encryption and hashing? When would you use which?
+*The key difference between encryption and hashing is that encrypted strings can be reversed back into their original decrypted form if you have the right key.*<br>
+*Hashing:<br>
+Ideal way to store passwords, as hashes are inherently one-way in their nature.(+ salt)*
+
+*Encryption:<br>
+Ideal for sending secure messages.*
+
 #### What encryption methods do you know?
+*`RSA`:<br>
+Considered an asymmetric algorithm due to its use of a pair of keys.
+You’ve got your public key, which is what we use to encrypt our message, and a private key to decrypt it.*
+
 #### What hashing methods do you know?
+*`MD5` (already broken,easy to manipulate),<br>
+`SHA-2`(Secure Hash Algorithm)*
 #### How/where would you store sensitive data (like db password, API key, ...) of your application?
+*__Hide from publicity.__<br>
+Using hashing or encryption, to further make it harder to obtain.*
 
 ## Computer science
 
