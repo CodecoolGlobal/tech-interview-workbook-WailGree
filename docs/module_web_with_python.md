@@ -3,7 +3,6 @@
 ## Software design
 
 ### Clean code
-
 #### Point out 5 suggestions, how to format an SQL query!
   1. *Descriptive related but different database and table names*
   2. *Keywords and expressions are aligned into separate columns*
@@ -18,7 +17,6 @@
   - *Domain*
 
 ### Error handling
-
 #### What error can occur, when an array does not have an element on the requested index?
 *`IndexError`*
 
@@ -38,7 +36,6 @@ Try…catch…finally database resource management.*
 can be handled with exception in the case that the code can not accept just the right one.*
 
 ### Security
-
 #### What is SQL injection? How to protect an application against it?
 *An SQL injection is a computer attack in which malicious code is embedded in a poorly-designed application and then passed to the backend database.*
 
@@ -90,13 +87,31 @@ Using hashing or encryption, to further make it harder to obtain.*
 ## Computer science
 
 ### Algorithms
-
 #### What is the difference between Stack and Queue data structure?
+| *STACKS* | *QUEUES* |
+|:-:|:-:|
+| *Stacks are based on the LIFO( Last in First out) principle, i.e., the element inserted at the last, is the first element to come out of the list.* | *Queues are based on the FIFO (First in First out) principle, i.e., the element inserted at the first, is the first element to come out of the list.* |
+| *Insert operation is called push operation.* | *Insert operation is called enqueue operation.* |
+| *Delete operation is called pop operation.* | *Delete operation is called dequeue operation.* |
+| *In stacks we maintain only one pointer to access the list, called the top (last element).* | *In queues we maintain two pointers to access the list (first/last position).* |
+
 #### What is BubbleSort? Describe the main logic of this sorting algorithm.
+*BubbleSort is a sorting method. Starting from the first element, comparing it with the next. If the next element higher then the previous move to the next. Else swap them. And so on till the last index.*
+
 #### Explain the process of finding the maximum and minimum value in a list of numbers!
+*Moving along the collection (iterate). Set the first as highest/lowest. Then comparing each next element with the firts and replace it with the first accordingly.*
+
 #### Explain the process of calculating the average value in an array of numbers!
+*Adding each element value together and dividing it with the the total element count.*
+
 #### What is Big O complexity? Explain time and space complexity!
+*Big O Notation is to describe the complexity of an algorithm. How long an algorithm takes to run. It is to compare the efficiency of different approaches to a problem.*
+  - How quickly the runtime grows : use Big O Notation to talk about how quickly the runtime grows.
+  - Relative to the input : With Big O Notation, we use the size of the input, which we call “n”. So we can say things like the runtime grows “on the order of the size of the  - input” (O(n)) or “on the order of the square of the size of the input” (O(n²)).
+  - As the input gets larger : we care more about the stuff that grows fastest as the input grows, because everything else is quickly eclipsed as n gets very large.
+
 #### Explain the process of calculating the average value in a list of numbers!
+*Sum all of the data values and divide by the number of nodes in the list.*
 
 ### Procedural
 #### How the CASE condition works in SQL?
