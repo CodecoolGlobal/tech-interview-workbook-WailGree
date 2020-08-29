@@ -5,7 +5,17 @@
 ### Clean code
 
 #### Point out 5 suggestions, how to format an SQL query!
+  1. *Descriptive related but different database and table names*
+  2. *Keywords and expressions are aligned into separate columns*
+  3. *Indented new line after every logical step*
+  4. *Query parameters indented to create a block like body*
+  5. *Commas are at the end of the line*
+
 #### What layers can you name in a simple web application?
+  - *View*
+  - *Application service*
+  - *Database*
+  - *Domain*
 
 ### Error handling
 #### What error can occur, when an array does not have an element on the requested index?
