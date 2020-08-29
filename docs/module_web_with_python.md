@@ -115,15 +115,131 @@ Using hashing or encryption, to further make it harder to obtain.*
 
 ### Procedural
 #### How the CASE condition works in SQL?
+`CASE` *is a program-flow controlling structure, like the `if` in other programming language.<br>
+The CASE statement goes through conditions and returns a value when the first condition is met.<br>
+So, once a condition is true, it will stop reading and return the result. If no conditions are true, it returns the value in the ELSE clause.*
+
 #### How the switch-case condition works in JavaScript?
+*The switch statement is used to perform different actions based on different conditions.<br>
+Use the switch statement to select one of many code blocks to be executed.*
+
 #### How to achieve a switch-case-like structure in Python?
+*The Pythonic way to implement switch statement is to use the powerful dictionary mappings, also known as associative arrays, that provide simple one-to-one key-value mappings.*
+```Python
+def switch_demo(argument):
+   switcher = {
+       1: "January",
+       2: "February",
+       3: "March",
+       4: "April",
+       5: "May",
+       6: "June",
+       7: "July",
+       8: "August",
+       9: "September",
+       10: "October",
+       11: "November",
+       12: "December"
+   }
+   print(switcher.get(argument, "Invalid month")) # Invalid month is default if number not found
+```
+
 #### Explain variable scoping in Python!
+`LEGB Rule`.
+
+*L, Local — Names assigned in any way within a function (def or lambda)),
+and not declared global in that function.*
+
+*E, Enclosing-function locals — Name in the local scope of any and
+all statically enclosing functions (def or lambda), from inner to outer.*
+
+*G, Global (module) — Names assigned at the top-level of a module file,
+or by executing a global statement in a def within the file.*
+
+*B, Built-in (Python) — Names preassigned in the built-in names module : open,range,SyntaxError,...*
+
+*example:*
+```Python
+code1
+class Foo:
+   code2
+   def spam.....
+      code3
+      for code4..:
+       code5
+       x()
+```
+*The for loop does not have its own namespace. In LEGB order, the scopes would be*
+
+*L : local, in def spam (in code3, code 4, code5).*
+
+*E : Enclosed function, any enclosing functions (if the whole example were in another def)*
+
+*G : Global. Were there any x declared globally in the module (code1)?*
+
+*B : Any builtin x in Python.*
+
+*x will never be found in code2*
+
 #### What’s the difference between const and var in JavaScript?
+*The const keyword creates a declaration that cannot be reassigned. WHERE u can reassign with var(+var is global scoped).*
+
 #### How the list comprehension looks like in Python?
+```Python
+# You can either use loops:
+squares = []
+
+for x in range(10):
+    squares.append(x**2)
+ 
+print(squares)
+#result: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]
+
+# Or you can use list comprehensions to get the same result:
+squares = [x**2 for x in range(10)]
+
+print(squares)
+#result: [0, 1, 4, 9, 16, 25, 36, 49, 64, 81]     
+```
+
 #### How the “ternary expression” looks like in Python?
+```Python
+a = val_if_true if test else val_if_false
+in action:
+d = {'a': 'x', 'b': 'y', 'c': 'x'}
+
+def has_unique_value(k):
+    return d.values().count(d[k]) == 1
+
+def keys_with_same_value_as_key(k):
+    return set([key for key in d.keys() if d[key] == d[k]])
+
+print( {d[k]:k if has_unique_value(k) else keys_with_same_value_as_key(k) for k in d.keys()} )
+```
+
 #### How the ternary expression looks like in JavaScript?
+*with if/else:*
+```Javascript
+if (person.age >= 16) {
+  person.driver = 'Yes';
+} else {
+  person.driver = 'No';
+}
+with tenary expression:
+person.driver = person.age >=16 ? 'Yes' : 'No';
+```
+
 #### How to import a function from another module in Python?
+```Python
+from a import b, c
+```
+
 #### How to import a function from another module in JavaScript?
+```Javascript
+import "my-module.js";
+    import myModule from "my-module.js";
+    import {reallyReallyLongModuleMemberName as shortName} from "my-module.js";
+```
 
 ### Functional
 #### What is recursion?
