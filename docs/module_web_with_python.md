@@ -18,9 +18,24 @@
   - *Domain*
 
 ### Error handling
+
 #### What error can occur, when an array does not have an element on the requested index?
+*`IndexError`*
+
 #### What is the “finally” block, and how would you use it?
+*Finally block is used when you want to run important code. Finally block is __always executed__ whether exception is handled or not.*
+
+*Example:
+Try…catch…finally database resource management.*
+  
 #### Why should we catch special exception types?
+*In general, an exception breaks the normal flow of execution and executes a pre-registered exception handler.*
+*To point to using an exception handler is to keep running the code in cases which are "minor" problems from a view of the program:*
+  - *to avoid a bad input that can broke the consistency of the code*,
+  - *to avoid an index error with limiting the steps for the user*,
+  
+*Or to prevent some mayor problem. For example, important sequences should properly given for the program. __Misspelling__ or __harmful__ injections
+can be handled with exception in the case that the code can not accept just the right one.*
 
 ### Security
 #### What is SQL injection? How to protect an application against it?
