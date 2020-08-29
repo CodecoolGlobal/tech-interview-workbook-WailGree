@@ -243,14 +243,102 @@ import "my-module.js";
 
 ### Functional
 #### What is recursion?
+*Recursive in function:<br>
+The function calls itself again at the end of the execution with value(s) what is/are defined by itself. Can be other meanings too, e.g.: copying or deleting a folder in a recursive way will delete/copy the sub folders too.*
+
 #### Write a recursive function which calculates the Fibonacci numbers!
+```Python
+ function fibo(limit, a=0, b=1) {
+        if (b >= limit) {
+            return
+        }
+        let c = a + b;
+        console.log(c);
+        return fibo(limit, b, c)
+    }
+    
+    fibo(30);
+```
+
 #### How to store a function in a variable in Python?
+```Python
+def one():
+    print("hello from function one")
+
+function_variable = one
+
+print(function_variable)
+```
+
 #### List the ways of defining a callable logical unit in JavaScript!
+  - *arrow function*
+  ```Javascript
+    const foo = (arg1, arg2) => {
+        ...
+    };
+ ```
+  - *concise method syntax:*
+  ```Javascript
+    let obj = {
+        myMethod(arg1, arg2) {
+            ...
+        }
+    };
+```
+
 #### What is an event listener? How to attach one?
+*It sets up a function that will be called whenever the specified event is delivered to the target.*
+```Javascript
+document.getElementById("myBtn").addEventListener("click", displayDate);
+```
+
 #### How to trigger an event in JavaScript?
+*Event listeners have a target, which they listen for. It can be triggered by:*
+  - *mouse actions*
+  - *keyboard actions*
+  - *content load (or change) actions*
+
 #### What is a callback function? Tell some examples of its usage.
+*A callback is a function that is to be executed after another function has finished executing — hence the name ‘call back’.
+More complexly put: In JavaScript, functions are objects. Because of this, functions can take functions as arguments, and can be returned by other functions.*
+```Javascript
+function doHomework(subject, callback) {
+ alert(`Starting my ${subject} homework.`);
+ callback();
+}
+function alertFinished(){
+ alert('Finished my homework');
+}
+doHomework('math', alertFinished);
+```
+*As you can see, we’ve passed the alertFinished function definition as an argument during our doHomework() function call!*
+
 #### What is a Python decorator? How does it work? Tell some examples of its usage.
+*A decorator takes in a function, adds some functionality and returns it.*
+```Javascript
+def smart_divide(func):
+   def inner(a,b):
+      print("I am going to divide",a,"and",b)
+      if b == 0:
+         print("Whoops! cannot divide")
+         return
+
+      return func(a,b)
+   return inner
+
+@smart_divide
+def divide(a,b):
+    return a/b
+```
+
 #### What is the difference between synchronous and asynchronous execution?
+*When you execute something synchronously, you wait for it to finish before moving on to another task. When you execute something asynchronously, you can move on to another task before it finishes.<br>
+Synchronous execution means the execution happens in a single series.<br>
+A->B->C->D.<br>
+If you are calling those routines, A will run, then finish, then B will start, then finish, then C will start, etc.<br>
+With Asynchronous execution, you begin a routine, and let it run in the background while you start your next, then at some point, say "wait for this to finish". It's more like:<br>
+Start A->B->C->D->Wait for A to finish<br>
+The advantage is that you can execute B, C, and or D while A is still running (in the background, on a separate thread), so you can take better advantage of your resources and have fewer "hangs" or "waits".*
 
 ## Programming languages
 
