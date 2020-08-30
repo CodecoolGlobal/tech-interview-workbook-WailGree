@@ -811,8 +811,54 @@ Thus, you can set flags in your login script such as *`logged_in`, *to check if 
 ## Software Development Methodologies
 
 #### What kind of software development methodologies do you know? What are the main features of these?
+**Waterfall development methodology:**<br>
+`-> Requirements -> Desing -> Implementation -> Verification -> Maintanance`<br> 
+It’s a rigid linear model that consists of sequential phases (requirements, design, implementation, verification, maintenance) in which distinct goals are accomplished.<br>
+Each phase must be ***100% complete before the next phase can start***, and traditionally there is no process for going back to modify the project or direction.
+
+**Agile:**<br>
+***Adaptive*** *approach which is able to respond to the changing requirements of the clients. Direct communication and feedback from customer.*
+
+**Agile development methodology:**<br>
+ -> *Requirement/Features/User stories/Product Backlog*
+ -> *Scrum Team(with lead)*
+ -> *Sprint Planning(relative time)*
+ -> *Sprints 1-4 Weeks Duration* 
+ -> *Production deployment*
+ -> *Done Checklist*
+ *(While this process other people making the desing,build it,inegrate,test the software)*
+ -> *Sprint Retrospective*
+ -> *Product review(customer input)*
+ -> *Potential Product Increment*
+ 
 #### What are the SCRUM roles?
+  1. *One of the most important things for the success of scrum is the role of the `Product Owner`, who serves as an interface between the team and other involved parties (stakeholders).*
+  2. *The* `Scrum Master` *does not interfere into the decisions of the team regarding specifically the development, but rather is there for the team as an advisor. He only interferes actively when anybody of the team or any other participant of a project (Stakeholder) does not obey the rules of Scrum.*
+  3. *The* `Development Team` *in Scrum a team is not just the executive organ that receives its tasks from the project leader, it rather decides self dependent, which requirements or User Stories it can accomplish in one sprint.*
+
 #### What are the SCRUM ceremonies?
+| **Ceremonies** |
+|:-:|
+| *Sprint Planning* |
+| *Sprint review* |
+| *Sprint retrospective* |
+| *Daily Scrum* |
+
 #### What are the SCRUM artifacts?
+| **Artifacts** |
+|:-:|
+| *Increment* |
+| *Product backlog* |
+|*Sprint backlog* |
+
 #### What is the main goal of a retrospective meeting?
+*This is where the Scrum Team meets ***to reflect on their previous Sprint and to figure out how to improve as a team*** by asking – what went well, what did not and what can be improved. It allows the team to focus on its overall performance and identify strategies for continuous improvement.*
+
 #### Explain, when would you recommend to use the waterfall methodology?
+*Use Waterfall when:*
+  - *The project is simple,*
+  - *The project is complicated, but you have the expertise to deliver it,*
+  - *It is all you know and you have no support for change,*
+  - *The upfront investment is not risky to make,*
+  - *You focus your performance measures on delivery date and budget.*
+  
