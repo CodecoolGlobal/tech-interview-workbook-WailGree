@@ -346,9 +346,10 @@ The advantage is that you can execute B, C, and or D while A is still running (i
 #### How can you connect your application to a database server? What are the possible ways?
 *I need a connection string and a connection object from the database provider to set a session with the database server. For phyton we can use the psycopg2 module api's to connect an application with psql database.*
 
-`Everything On One Server`<br>
-*The entire environment resides on a single server. For a typical web application, that would include the web server, application server, and database server.*<br>
-`Separate Database Server`<br>
+`Everything On One Server`:<br>
+*The entire environment resides on a single server. For a typical web application, that would include the web server, application server, and database server.*
+
+`Separate Database Server`:<br>
 *The database management system (DBMS) can be separated from the rest of the environment to eliminate the resource contention between the application and the database, and to increase security.*
 
 #### When do you use the DISTINCT keyword in SQL?
@@ -571,13 +572,100 @@ ol {
  5. *HTML focuses on how data looks where as XML focuses on what data is.*
 
 ### Javascript
-
 #### What is javascript?
+*JS is a scripting language designed to control web page content.<br>*
+  - *can update and change both HTML and CSS*
+  - *can calculate, manipulate and validate data.*
+
 #### When to use AJAX? Bring examples of its usage.
+*AJAX stands for "Asynchronous Javascript and XML".<br> *
+*AJAX programming is used, for exchanging data in the background without actually disturbing the user experience, and for rendering the access of data more efficiently and effectively.*
+*Things That Are Good for AJAX:*
+    - *Form validation (It's so much nicer when the form tells
+        you as you are typing if you've filled it out wrong or not.),*
+    - *Comments when a commenter hits the comment button, it's nice to see the comment appear immediately on the page.),*
+    - *Login Forms,*
+    - *Auto-Complete(when searching for example),*
+    - *Voting and Rating (forums),*
+    - *Updating With User Content,*
+    - *Chat Rooms And Instant Messaging,*
+    - *Lightboxes instead of pop-ups*
+
 #### What is DOM and how to manipulate it from Javascript?
+*DOM - Document Object Model DOM is representative displaying for the according html document, and those objects can be modified.<br>*
+  - *Creating, removing or replacing an element*
+  - *Modifying an element's text and/or HTML content*
+  - *Getting an element content and working with it*
+
+```Javascript
+let element = document.querySelector('selector')
+
+/* You can use it to get the element from the DOM and save
+it as a variable, and manipulate it.  */
+
+
+let btn = document.querySelector('button');
+btn.addEventListener('click', foo);
+
+/*Or give it a event listener for a specific  element*/
+
+
+let pEle = document.createElement('p')
+
+/*You can even create elements*/
+
+
+let div = document.querySelector('div');
+div.setAttribute('contentEditable', '')
+/* method either adds a new attribute to an HTML element, or updates the value*/
+```
+
 #### What are events and how/why to use them in Javascript?
+*Events occur when the page loads, when user interacts (clicks, hovers, changes) and myriad other times, and can be triggered manually too.*
+
+*The addEventListener method is the most preferred way to add an event listener to window, document or any other element in the DOM,<br>
+because JavaScript in the browser uses an event-driven programming model.* **Everything starts by following an event**
+```Javascript
+let btn = document.querySelector('button');
+btn.addEventListener('click',function(event) {
+  }
+);
+```
+
 #### What is event bubbling/capturing? How would you use it?
+*Event bubbling and capturing are two ways of event propagation in the HTML DOM API, when an event occurs in an element inside another element, and both elements have registered a handle for that event.
+When an event happens on an element, it first runs the handlers on it, then on its parent, then all the way up on other ancestors.
+With capturing, the event is first captured by the outermost element and propagated to the inner elements.
+Event capturing:*
+```
+---------------| |-----------------
+| element1     | |                |
+|   -----------| |-----------     |
+|   |element2  \ /          |     |
+|   -------------------------     |
+|        Event CAPTURING          |
+-----------------------------------
+```
+
+*The event handler of element1 fires first, the event handler of element2 fires last.
+Event bubbling:*
+```
+               / \
+---------------| |-----------------
+| element1     | |                |
+|   -----------| |-----------     |
+|   |element2  | |          |     |
+|   -------------------------     |
+|        Event BUBBLING           |
+-----------------------------------
+```
+*The event handler of element2 fires first, the event handler of element1 fires last.*
+
 #### What is JSON and how do we use it?
+*JSON is short for JavaScript Object Notation, and is a way to store information in an organized, easy-to-access manner. In a nutshell, it gives us a human-readable collection of data that we can access in a really logical manner. JSON (in Javascript) is a string!<br>
+How to use it:<br>
+In short, you are forced to communicate things using key-value pairs and arrays.<br>
+JSON is basically a way of communicating data to someone, with very, very specific rules.*
 
 ## Software engineering
 
