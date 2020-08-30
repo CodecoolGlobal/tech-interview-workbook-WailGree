@@ -451,7 +451,7 @@ WHERE city = 'Miskolc';
 *Similarities between HTML and XML:*
  1. *Both are languages of web.*
  2. *Both are markup languages.*
- 3. *Both are originated from SGML. [Standardized General Markup Language]*
+ 3. *Both are originated from SGML. "Standardized General Markup Language".*
  4. *Tags are basic building blocks of both HTML and XML documents.*
  
  *Differences between HTML and XML:*
@@ -670,21 +670,41 @@ JSON is basically a way of communicating data to someone, with very, very specif
 ## Software engineering
 
 ### Version control
-
 #### What type of branching strategy would you use?
+*I would use* **Gitflow Workflow**:
+  - *Code in master is deployable at all times,*
+  - *When you want to start working on a new task, create a new branch off of master and give it a descriptive name,*
+  - *Commit to that branch locally and regularly send your work to the same-named branch on the server,*
+  - *Open a pull request when you feel your changes are ready to be merged (or even if you aren’t so sure, but would like some feedback),*
+  - *After the new feature is revised and approved, you can merge it into master,*
+  - *Once your changes are merged and pushed to the master, you can and should delete the branch.*
+
 #### What would you do if you find a bug on the production code (master branch)?
+*I would report it to my project manager. And he/she would tell us how/who should fix it.<br>
+Alternatively, I would open a new branch, locate and fix the bug, after testing merge it back to master.*
+
 #### How can you move changes from one branch to another in GIT?
+```git
+git branch checkout <branchname>
+```
+
 #### How does a VCS help with code reviews?
+  - *Modern version control systems are designed to help address problems that teams face when collaborating.*
+  - *Breaking down silos and embracing more perspectives and conversations can enable you and your team to deliver better software.*
+
 #### What is your favorite git command? Why?
+`git status`  -> *I can see current status -> relief*<br>
+`git push`    -> *I can push what I've done -> accomplisment*
+
 #### What does remote/local mean in Git? 
+`remote`  -> *Repository's server, storing the repo online.*<br>
+`local`   -> *The repository's offline, local, on-disk stored version, which we make the changes on.*
 
 ### DevOps
-
 #### Why is it good to use a package manager software?
 #### Why is it good to use a virtual environment for a project?
 
 ### Networks
-
 #### What kind of HTTP status codes do you know?
 #### What is a API?
 #### What is REST API?
