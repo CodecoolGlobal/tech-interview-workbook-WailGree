@@ -684,6 +684,7 @@ JSON is basically a way of communicating data to someone, with very, very specif
 Alternatively, I would open a new branch, locate and fix the bug, after testing merge it back to master.*
 
 #### How can you move changes from one branch to another in GIT?
+*Make and checkout to a new branch will copy the actual state of the original branch where can be rollback or set back status. Rebase or merge bring changes from another branch into the current one.*
 ```git
 git branch checkout <branchname>
 ```
@@ -724,6 +725,7 @@ git branch checkout <branchname>
   - *404 Not Found*
   - *405 Method Not Allowed*
   - *408 Request Timeout*
+  - *418 I'm a teapot*
   - *500 Internal Server Error*
   - *504 Gateway Timeout*
 
