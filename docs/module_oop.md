@@ -672,7 +672,7 @@ public class GenericMethodTest {
 ```
 
 #### What is the benefit of having “generic” containers?
-//TODO
+The possibility, of using the methods, the Class properties on different type of variables. Make it String, Integer. primitive types, such as int are not usable in generic containers.
 
 ```java
 public class Container<T> {
