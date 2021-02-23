@@ -146,13 +146,47 @@ Continuous Deployment (CD) is a software release process that uses automated tes
 DevOps is a set of practices that works to automate and integrate the processes between software development and IT teams, so they can build, test, and release software faster and more reliably. The term DevOps was formed by combining the words “development” and “operations” and signifies a cultural shift that bridges the gap between development and operation teams, which historically functioned in siloes. 
 
 ### Software Methodologies
+
 #### What kind of software-lifecycle models do you know?
+1.	Agile development
+2.	Waterfall Model
+
 #### What is a UML diagram? What kind of diagram types do you know?
+A UML diagram is a diagram based on the UML (Unified Modeling Language) with the purpose of visually representing a system along with its main actors, roles, actions, artifacts or classes, in order to better understand, alter, maintain, or document information about the system.
+
+Diagram types:
+
+1.	Class diagram
+2.	Package diagram
+
 #### What is a UML class diagram? What are the typical elements?
+The UML Class diagram is a graphical notation used to construct and visualize object oriented systems. A class diagram in the Unified Modeling Language (UML) is a type of static structure diagram that describes the structure of a system by showing the system's:
+
+1. Classes, 
+2. Their attributes, 
+3. Operations (or methods), 
+4. And the relationships among objects.
+
 #### What kind of design patterns do you know? Bring at least 3 examples.
+1.	Singleton pattern
+2.	Abstract Factory
+3.	Factory method
+4.  DAO
+
 #### What is the purpose of the Iterator Pattern?
+Iterator is a behavioral design pattern that allows sequential traversal through a complex data structure without exposing its internal details.
+
 #### What do you know about the SOLID principles?
+S.O.L.I.D is an acronym that represents five principles of object-oriented programming.
+
+[S]ingle Responsibility Principle 
+[O]pen/Closed Principle 
+[L]iskov Substitution Principle 
+[I]nterface Segregation Principle
+[D]ependency Inversion Principle
+
 #### How would you separate data storage code and business logic code (which uses stored data) in an application?
+Using DAO pattern. 
 
 ## Computer science
 
