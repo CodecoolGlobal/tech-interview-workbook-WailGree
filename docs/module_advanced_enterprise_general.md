@@ -121,12 +121,29 @@ TDD advantages:
 3.  **Assert** – verify the result.  
 
 ### DevOps
+
 #### What is continuous integration? Why is CI important?
+Continuous integration (CI) is the practice of automating the integration of code changes from multiple contributors into a single software project. The CI process is comprised of automatic tools that assert the new code’s correctness before integration
+
+CI is an asset to a software producing organization. CI benefits are not limited to the engineering team but greatly benefit the overall organization. CI enables better transparency and insight into the process of software development and delivery. These benefits enable the rest of the organization to better plan and execute go to market strategies.
+
 #### Why are tests important in the CI workflow?
+If you test and deploy code more frequently, it will eventually reduce the risk level of the project you are working on as you can detect bugs and code defects earlier. This means they are easier to fix and you can fix them sooner which makes it cheaper to fix them.
+
 #### Name some software that help the CI workflow!
+1.	Jenkins
+2.	Travis
+3.	Circle CI
+4.	Gitlab CI
+
 #### What is Continuous Delivery?
+Continuous Delivery is the ability to get changes of all types—including new features, configuration changes, bug fixes and experiments—into production, or into the hands of users, safely and quickly in a sustainable way.
+
 #### What is Continuous Deployment?
+Continuous Deployment (CD) is a software release process that uses automated testing to validate if changes to a codebase are correct and stable for immediate autonomous deployment to a production environment.
+
 #### What is DevOps?
+DevOps is a set of practices that works to automate and integrate the processes between software development and IT teams, so they can build, test, and release software faster and more reliably. The term DevOps was formed by combining the words “development” and “operations” and signifies a cultural shift that bridges the gap between development and operation teams, which historically functioned in siloes. 
 
 ### Software Methodologies
 #### What kind of software-lifecycle models do you know?
