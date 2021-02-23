@@ -28,7 +28,7 @@ Disadvantages of microservices:
 4. Debugging problems can be harder	
    
 #### What is Separation of Concerns?
-*Separation of concerns is a software architecture principle for separating an application in distinct sections, so each section addresses a separate concern. The overall goal of SoC is to establish a well-organized system where each part fulfils a meaningful and intuitive role while maximizing its ability to adapt to change.*
+Separation of concerns is a software architecture principle for separating an application in distinct sections, so each section addresses a separate concern. The overall goal of SoC is to establish a well-organized system where each part fulfils a meaningful and intuitive role while maximizing its ability to adapt to change.
 
 #### What is a layered design and why is it important in enterprise applications?
 Layered architecture are n-tiered patterns where the components are organized in horizontal layers. This is the traditional method for designing most software and is meant to be self-independent. All components are interconnected but not dependent on each other.
@@ -61,13 +61,64 @@ Service-Oriented Architecture (SOA) is a style of software design where services
 The primary motivator for companies to switch to an SOA is the ability to reuse code for different applications. By reusing code that already exists within a service, enterprises can significantly reduce the time that is spent during the development process.
 
 ### Testing
+
 #### What are unit test, integration test, system test, regression test, acceptance test? What is the major difference between these?
+**Unit testing** is a level of software testing where individual units/components of a software are tested. The purpose is to validate that each unit of the software performs as designed. A unit is the smallest testable part of any software.
+
+**Integration testing** is a level of software testing where individual units are combined and tested as a group. The purpose of this level of testing is to expose faults in the interaction between integrated units. Test drivers and test stubs are used to assist in Integration Testing.
+
+**Regression testing** is a type of software testing that intends to ensure that changes (enhancements or defect fixes) to the software have not adversely affected it.
+The likelhood of any code changes impacting functionalities that are not directly associated with the code is always there and it is essential that regression testing is conducted to make sure that fixing one thing has not broken another thing.
+
+**Acceptance testing** is a level of software testing where a system is tested for acceptability. The purpose of this test is to evaluate the system’s compliance with the business requirements and assess whether it is acceptable for delivery.
+
+**System testing** is a level of software testing where a complete and integrated software is tested. The purpose of this test is to evaluate the system’s compliance with the specified requirements.
+
 #### What is code coverage? Why is it used? How you can measure?
+Code coverage is the percentage of code which is covered by automated tests. Code coverage measurement simply determines which statements in a body of code have been executed through a test run, and which statements have not. In general, a code coverage system collects information about the running program and then combines that with source information to generate a report on the test suite's code coverage.
+
+To calculate the code coverage percentage, simply use the following formula:
+
+Code Coverage Percentage = (Number of lines of code executed by a testing algorithm/Total number of lines of code in a system component) * 100.
+
 #### What does mocking mean? How would you do it 'manually' (i. e. without using any fancy framework)?
+Mocking is a process used in unit testing when the unit being tested has external dependencies. The purpose of mocking is to isolate and focus on the code being tested and not on the behavior or state of external dependencies. In mocking, the dependencies are replaced by closely controlled replacements objects that simulate the behavior of the real ones. There are 3 main possible types of replacement objects
+
+1.  Fakes
+2.  Stubs
+3.  Mocks
+ 
 #### What is a test case? What is an assertion? Give examples!
+A **test case** is a set of actions executed to verify a feature or functionality of your software application. A test case contains test steps, test data, precondition, postcondition developed for specific test scenario to verify any requirement.
+
+An **assertion** is a bool expression at a specific point in a program which will be true unless there is a bug in the program. A test assertion is defined as an expression, which encapsulates some testable logic specified about a target under test.
+
 #### What is TDD? What are the benefits?
+The TDD methodology implies writing the unit test before writing the actual code. This process forces the developer to refactor and think about the unit’s interface and expected result. Whether or not the code is written correctly is apparent immediately when using this methodology.
+
+TDD advantages:
+
+1.  Better program design and higher code quality
+2.	Detailed project documentation
+3.	Reduces the time required for project development
+4.	Code flexibility and easier maintenance
+5.	Save project costs in the long run
+
 #### What are the unit testing best practices? (Eg. how many assertion should a test case contain?)
+1.	Good test name
+2.	Arrange your test in Arrange, Act and Assert
+3.	Write minimal passing tests
+4.	Avoid magic strings
+5.	Avoid logic in tests
+6.	Avoid multiple asserts (only one assert per test)
+7.	Test public interfaces
+8.	Verify one use case per test
+
 #### What is arrange/act/assert pattern?
+
+1.  **Arrange** – setup the testing objects and prepare the prerequisites for your test.
+2.  **Act** – perform the actual work of the test.
+3.  **Assert** – verify the result.  
 
 ### DevOps
 #### What is continuous integration? Why is CI important?
