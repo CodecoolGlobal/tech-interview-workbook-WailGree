@@ -57,9 +57,39 @@ WCF offers its services to its client using an endpoint. An endpoint comprises o
 ### Object Relational Mapping, Entity Framework
 
 #### What is an ORM? What are benefits, when to use?
+Object Relational Mapping is a technique that lets you query and manipulate data from a database using an object-oriented paradigm.
+Benefits of using an ORM:
+
+1.	DRY code
+2.	Database handling is done automatically
+3.	Abstracts the DB system so you can bring changes
+
 #### What is Entity Framework? What are the advantages, limitations?
+Entity Framework is an open-source ORM framework for .NET applications supported by Microsoft. It enables developers to work with data using objects of domain specific classes without focusing on the underlying database tables and columns where this data is stored.
+
+The advantages of EF are:
+1.	It provides auto generated code
+2.	It reduces development time
+3.	It reduces development cost
+4.	It enables developers to visually design models and mapping of database
+5.	It provides capability of programming a conceptual model.
+
 #### What is lazy loading?
+Lazy loading (also called on-demand loading) is an optimization technique for the online content, be it a website or a web app.
+Instead of loading the entire web page and rendering it to the user in one go as in bulk loading, the concept of lazy loading assists in loading only the required section and delays the remaining, until it is needed by the user.
+
 #### What is the difference between code first and DB first approach?
+In code first approach we will first create entity classes with properties defined in it. Entity framework will create the database and tables based on the entity classes defined. So database is generated from the code. When the dot net code is run database will get created
+
+In database first approach Database and tables are created first. Then you create entity Data Model using the created database.
+
 #### What is a migration script?
+Whereas a build script creates a database, a migration script, or ‘change’ script, alters a database. It's called a migration script because it changes all or part of a database from one version to another. It ‘migrates’ it between versions. This alteration can be as simple as adding or removing a column to a table, or a complex refactoring task such as splitting tables or changing column properties in a way that could affect the data it stores.
+
 #### What is a navigation property?
+A navigation property is an optional property on an entity type that allows for navigation from one end of an association to the other end. Unlike other properties, navigation properties do not carry data.
+
 #### Name 3 different attributes used in EF Core, what can they do for you?
+[Required] – property’s value is required
+[MaxLength] – set maximum length allowed of the property value
+[Key] – identifies one or more properties as a Key
