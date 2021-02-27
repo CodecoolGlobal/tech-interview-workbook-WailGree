@@ -109,7 +109,7 @@ def find_avg():
 
 **An error type.**
 
-*In softwarem a stack overflow occurs if the call stack pointer exceeds the stack bound. The call stack may consist of a limited amount of address space, oftendetermined at the start of the program. The size of the call stack depends on many factors, including the programming language, machine architecture, multi-threading, and amount of available memory. When a program attempts to use more space than is available on the call stack , the stack is said to overflow, typically resulting in a program crash. Recursive function never quit.*
+*In software a stack overflow occurs if the call stack pointer exceeds the stack bound. The call stack may consist of a limited amount of address space, oftendetermined at the start of the program. The size of the call stack depends on many factors, including the programming language, machine architecture, multi-threading, and amount of available memory. When a program attempts to use more space than is available on the call stack , the stack is said to overflow, typically resulting in a program crash. Recursive function never quit.*
 
 *In short, if we run out of space, the program will send this error.*
 
