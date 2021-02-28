@@ -289,7 +289,7 @@ Also called “formatted string literals,” f-strings are string literals that 
 
 ```Python
 answer = 456
-f"Your answer is "{answer}""
+f"Your answer is {answer}"
 ```
 
 #### Name 4 iterable types in Python!
@@ -297,7 +297,7 @@ f"Your answer is "{answer}""
 1. list
 2. strings
 3. tuple
-4. dictonory
+4. dictionary
 
 #### What is the difference between list/set/dictionary comprehension and a generator expression in Python?
 
@@ -339,7 +339,7 @@ The calling of the functions is what matters.*
 
 *Unpacking in Python refers to an operation that consists of assigning an iterable of values to a tuple (or list ) of variables in a single assignment statement. As a complement, the term packing can be used when we collect several values in a single variable using the iterable unpacking operator.*
 
-*For an example if we want to give a list as parameters of a function we can unpack the list with the "*" operator to give parameters by elements.
+*For an example if we want to give a list as parameters of a function we can unpack the list with the "\*" operator to give parameters by elements.*
 
 ```Python
 def fun(a,b,c,d):
@@ -470,7 +470,7 @@ you can use exception handling.
 
 #### What can/should we do with an exception in the ‘except’ block?
 
-1. *printing the problem in an elgegant way*
+1. *printing the problem in an elegant way*
 2. *quit the program if need it*
 
 #### What does the else and finally statement do in a try-except block in Python?
