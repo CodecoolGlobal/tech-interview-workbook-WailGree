@@ -3,7 +3,7 @@
 ## Software design
 
 ### Clean code
-#### Point out 5 suggestions, how to format an SQL query!
+#### Point out 5 suggestions, on how to format an SQL query!
   1. *Descriptive related but different database and table names*
   2. *Keywords and expressions are aligned into separate columns*
   3. *Indented new line after every logical step*
@@ -32,7 +32,7 @@ Try…catch…finally database resource management.*
   - *to avoid a bad input that can broke the consistency of the code*,
   - *to avoid an index error with limiting the steps for the user*,
   
-*Or to prevent some mayor problem. For example, important sequences should properly given for the program. __Misspelling__ or __harmful__ injections
+*Or to prevent some mayor problem. For example, important sequences should be properly given for the program. __Misspelling__ or __harmful__ injections
 can be handled with exception in the case that the code can not accept just the right one.*
 
 ### Security
@@ -344,7 +344,7 @@ The advantage is that you can execute B, C, and or D while A is still running (i
 
 ### SQL
 #### How can you connect your application to a database server? What are the possible ways?
-*I need a connection string and a connection object from the database provider to set a session with the database server. For phyton we can use the psycopg2 module api's to connect an application with psql database.*
+*I need a connection string and a connection object from the database provider to set a session with the database server. For Python we can use the psycopg2 module api's to connect an application with psql database.*
 
 `Everything On One Server`:<br>
 *The entire environment resides on a single server. For a typical web application, that would include the web server, application server, and database server.*
@@ -374,7 +374,7 @@ The advantage is that you can execute B, C, and or D while A is still running (i
   5. **AVG()**: *Returns the average value of a numeric column.*
 
 #### What kind of JOIN types do you know in SQL? Could you give examples?
-**Inner Joi:**<br>
+**Inner Join:**<br>
 *(returns records at the intersection of the two tables.)*
 ```SQL
 select first_name, last_name, order_date, order_amount
@@ -400,10 +400,10 @@ on c.customer_id = o.customer_id
 
 #### What are the constraints in SQL?
 *SQL constraints are used to specify rules for data in a table.*
-**NOT NULL** - *Ensures that a column cannot have a NULL value*
-**UNIQUE** - *Ensures that all values in a column are different*
-**PRIMARY KEY** - *A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table*
-**FOREIGN KEY** - *Uniquely identifies a row/record in another table*
+1. **NOT NULL** - *Ensures that a column cannot have a NULL value*
+2. **UNIQUE** - *Ensures that all values in a column are different*
+3. **PRIMARY KEY** - *A combination of a NOT NULL and UNIQUE. Uniquely identifies each row in a table*
+4. **FOREIGN KEY** - *Uniquely identifies a row/record in another table*
 
 #### What is a cursor in SQL? Why would you use one?
 *A cursor is a temporary work area created in the system memory when a SQL statement is executed.<br> 
@@ -426,7 +426,7 @@ In modern databases transactions also do some other things - like ensure that yo
 *This is the most common relationship type. In this type of relationship,<br>
 a row in table A can have many matching rows in table B,<br>
 but a row in table B can have only one matching row in table A.<br>
-(Each customer can only be assigned one city. One city can be assigned to many customers.)*
+(Each customer can only be assigned to one city. One city can be assigned to many customers.)*
 
 **Many-to-Many:**<br>
 *A many-to-many relationship could be thought of as two one-to-many relationships,<br>
@@ -512,7 +512,7 @@ ol {
 
 #### How to select elements using their attributes in CSS?
 ```CSS
-/*We can reach differently*/y
+/*We can reach differently*/
 
 [data-value] {
   /* Attribute exists */
@@ -581,21 +581,21 @@ ol {
 *AJAX stands for "Asynchronous Javascript and XML".<br> *
 *AJAX programming is used, for exchanging data in the background without actually disturbing the user experience, and for rendering the access of data more efficiently and effectively.*
 *Things That Are Good for AJAX:*
-    - *Form validation (It's so much nicer when the form tells
-        you as you are typing if you've filled it out wrong or not.),*
-    - *Comments when a commenter hits the comment button, it's nice to see the comment appear immediately on the page.),*
-    - *Login Forms,*
-    - *Auto-Complete(when searching for example),*
-    - *Voting and Rating (forums),*
-    - *Updating With User Content,*
-    - *Chat Rooms And Instant Messaging,*
-    - *Lightboxes instead of pop-ups*
+  1. *Form validation (It's so much nicer when the form tells
+      you as you are typing if you've filled it out wrong or not.),*
+  2. *Comments when a commenter hits the comment button, it's nice to see the comment appear immediately on the page.),*
+  3. *Login Forms,*
+  4. *Auto-Complete(when searching for example),*
+  5. *Voting and Rating (forums),*
+  6. *Updating With User Content,*
+  7. *Chat Rooms And Instant Messaging,*
+  8. *Lightboxes instead of pop-ups*
 
 #### What is DOM and how to manipulate it from Javascript?
 *DOM - Document Object Model DOM is representative displaying for the according html document, and those objects can be modified.<br>*
-  - *Creating, removing or replacing an element*
-  - *Modifying an element's text and/or HTML content*
-  - *Getting an element content and working with it*
+  1. *Creating, removing or replacing an element*
+  2. *Modifying an element's text and/or HTML content*
+  3. *Getting an element content and working with it*
 
 ```Javascript
 let element = document.querySelector('selector')
@@ -828,15 +828,15 @@ Each phase must be ***100% complete before the next phase can start***, and trad
  -> *Sprints 1-4 Weeks Duration* 
  -> *Production deployment*
  -> *Done Checklist*
- *(While this process other people making the desing,build it,inegrate,test the software)*
+ *(While this process other people making the design, build it, inegrate, test the software)*
  -> *Sprint Retrospective*
  -> *Product review(customer input)*
  -> *Potential Product Increment*
  
 #### What are the SCRUM roles?
-  1. *One of the most important things for the success of scrum is the role of the `Product Owner`, who serves as an interface between the team and other involved parties (stakeholders).*
-  2. *The* `Scrum Master` *does not interfere into the decisions of the team regarding specifically the development, but rather is there for the team as an advisor. He only interferes actively when anybody of the team or any other participant of a project (Stakeholder) does not obey the rules of Scrum.*
-  3. *The* `Development Team` *in Scrum a team is not just the executive organ that receives its tasks from the project leader, it rather decides self dependent, which requirements or User Stories it can accomplish in one sprint.*
+  1. *One of the most important things for the success of SCRUM is the role of the `Product Owner`, who serves as an interface between the team and other involved parties (stakeholders).*
+  2. *The* `Scrum Master` *does not interfere into the decisions of the team regarding specifically the development, but rather is there for the team as an advisor. He only interferes actively when anybody of the team or any other participant of a project (Stakeholder) does not obey the rules of SCRUM.*
+  3. *The* `Development Team` *in SCRUM a team is not just the executive organ that receives its tasks from the project leader, it rather decides self dependent, which requirements or User Stories it can accomplish in one sprint.*
 
 #### What are the SCRUM ceremonies?
 | **Ceremonies** |
