@@ -266,7 +266,7 @@ Technically, quick sort follows the below steps:
 2. Partition the array on the basis of pivot
 3. Apply quick sort on left partition recursively
 4. Apply quick sort on right partition recursively
-5. 
+ 
 ## Software design
 
 
