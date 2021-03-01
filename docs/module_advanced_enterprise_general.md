@@ -197,17 +197,76 @@ Using DAO pattern.
 ## Computer science
 
 ### Data Structures
+
 #### What is the difference between Stack and Queue data structure?
+Stack A stack is a linear data structure in which elements can be inserted and deleted only from one side of the list, called the top. A stack follows the LIFO (Last In First Out) principle, i.e., the element inserted at the last is the first element to come out.
+
+Queue: A queue is a linear data structure in which elements can be inserted only from one side of the list called rear, and the elements can be deleted only from the other side called the front. The queue data structure follows the FIFO (First In First Out) principle, i.e. the element inserted at first in the list, is the first element to be removed from the list
+
 #### What is a graph? What are simple graphs? What are directed graphs? What are weighted graphs?
+Graphs are a powerful and versatile data structure that easily allow you to represent real life relationships between different types of data (nodes). There are two main parts of a graph:
+
+-	The vertices (nodes) where the data is stored 
+-	The edges (connections) which connect the nodes
+A graph with no loops and no parallel edges is called a simple graph.
+
+A directed graph is graph, i.e., a set of objects (called vertices or nodes) that are connected together, where all the edges are directed from one vertex to another. A directed graph is sometimes called a digraph or a directed network. In contrast, a graph where the edges are bidirectional is called an undirected graph.
+
+A weighted graph is a graph in which each branch is given a numerical weight. A weighted graph is therefore a special type of labeled graph in which the labels are numbers (which are usually taken to be positive).
+
 #### What are trees? What are binary trees? What are binary search trees?
+A tree represents the nodes connected by edges.
+
+Binary Tree is a special data structure used for data storage purposes. A binary tree has a special condition that each node can have a maximum of two children. A binary tree has the benefits of both an ordered array and a linked list as search is as quick as in a sorted array and insertion or deletion operation are as fast as in linked list.
+
+Binary Search Tree is a node-based binary tree data structure which has the following properties:
+
+-	The left subtree of a node contains only nodes with keys lesser than the node’s key.
+-	The right subtree of a node contains only nodes with keys greater than the node’s key.
+-	The left and right subtree each must also be a binary search tree.
+
+
 #### How can you store graphs in programs? What are the advantages/disadvantages per each?
+You can store a graph using:
+
+-	Nodes as objects with pointers to one another
+-	A matrix of edge weights
+
+Nodes as objects with pointers to one another
+
+-	The memory complexity for this approach is O(n) because you have as many objects as you have nodes. The number of pointers (to nodes) required is up to O(n^2) as each node object may contain pointers for up to n nodes. 
+-	The time complexity for this data structure is O(n) for accessing any given node.
+
+Storing a matrix of edge weights
+
+-	This would be a memory complexity of O(n^2) for the matrix.
+-	The advantage with this data structure is that the time complexity to access any given node is O(1).
+
+
 #### What are graph traversal algorithms? What is BFS, how does it work? What is DFS, how does it work?
+Graph traversal algorithms are used to visit nodes in graph.
+
+The Breadth First Search (BFS) traversal is an algorithm, which is used to visit all of the nodes of a given graph. In this traversal algorithm one node is selected and then all of the adjacent nodes are visited one by one. After completing all of the adjacent vertices, it moves further to check another vertices and checks its adjacent vertices again.
+
+The Depth First Search (DFS) is a graph traversal algorithm. In this algorithm one starting vertex is given, and when an adjacent vertex is found, it moves to that adjacent vertex first and try to traverse in the same manner.
+
 #### How does dictionary work?
+Dictionary is a collection that stores key-value pairs in no particular order.
+
 #### Why is it important for keys in a hashmap to have an immutable type? (Consider string for example.)
+If immutable, the object's hash code won’t change and it allows caching the hash code of different keys which makes the overall retrieval process very fast. 
 
 ### Algorithms
 #### What is QuickSort? Describe the main logic of this sorting algorithm.
+QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot
+Technically, quick sort follows the below steps:
 
+
+1. Make any element as pivot
+2. Partition the array on the basis of pivot
+3. Apply quick sort on left partition recursively
+4. Apply quick sort on right partition recursively
+5. 
 ## Software design
 
 
