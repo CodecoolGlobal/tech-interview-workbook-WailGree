@@ -88,6 +88,12 @@ Mocking is a process used in unit testing when the unit being tested has externa
 2.  Stubs
 3.  Mocks
  
+**Fake** objects actually have working implementations, but usually take some shortcut which makes them not suitable for production.
+
+**Stubs** provide canned answers to calls made during the test, usually not responding at all to anything outside what's programmed in for the test. Stubs may also record information about calls, such as an email gateway stub that remembers the messages it 'sent', or maybe only how many messages it 'sent'.
+
+**Mocks** objects pre-programmed with expectations which form a specification of the calls they are expected to receive.
+
 #### What is a test case? What is an assertion? Give examples!
 A **test case** is a set of actions executed to verify a feature or functionality of your software application. A test case contains test steps, test data, precondition, postcondition developed for specific test scenario to verify any requirement.
 
