@@ -210,20 +210,65 @@ Using DAO pattern.
 
 ## Software design
 
+
 ### Security
 
 #### What is OAuth2?
+To begin at a high level, OAuth is not an API or a service: it’s an open standard for authorization and anyone can implement it
+
+More specifically, OAuth is a standard that apps can use to provide client applications with “secure delegated access”. OAuth works over HTTPS and authorizes devices, APIs, servers, and applications with access tokens rather than credentials.
+
 #### What is Basic Authentication?
+Basic authentication is a simple authentication scheme built into the HTTP protocol. The client sends HTTP requests with the Authorization header that contains the word Basic word followed by a space and a base64-encoded string username:password. For example, to authorize as demo / p@55w0rd the client would send
+
 #### What is CORS, why it’s needed in browsers?
+Cross-Origin Resource Sharing (CORS) is a mechanism that uses additional HTTP headers to tell browsers to give a web application running at one origin, access to selected resources from a different origin. A web application executes a cross-origin HTTP request when it requests a resource that has a different origin (domain, protocol, or port) from its own.
+
 #### How can you initialize a CSRF attack?
+A CSRF attack can be initialized using a GET or POST request and can make use of an Iframe with attributes that make it invisible.
+
 #### What is JWT used for? Where to store it on client side?
+JSON Web Token is a standard used to create access tokens for an application.
+
+It works this way: the server generates a token that certifies the user identity, and sends it to the client.
+
+The client will send the token back to the server for every subsequent request, so the server knows the request comes from a particular identity.
+
+The token is stored in an HttpOnly cookie. The other methods are all prone to XSS attacks and as such they should be avoided. An HttpOnly cookie is not accessible from JavaScript, and is automatically sent to the origin server upon every request, so it perfectly suits the use case.
 
 ### Threaded programming
 
 #### When do you need to use threads in an application?
+You need use threads when you are in this situation:
+-	Asynchronous operations
+-	Operations that can be parallelized
+-	Continual running background operations
+
 #### What is a daemon thread?
+A daemon thread will run until it completes or until all User Threads have completed. 
+
+Daemon threads make excellent "behind the scenes" processes for things that must happen in the background but can be terminated when the application ends - garbage collection is a great example of a process that could be handled with a daemon thread. Once all User Threads complete, any daemon Threads that are still running are automatically halted and the application terminates.
+
 #### What is the difference between concurrent and parallel execution of code?
+Concurrency means that an application is making progress on more than one task at the same time (concurrently).
+
+Parallelism means that an application splits its tasks up into smaller subtasks which can be processed in parallel, for instance on multiple CPUs at the exact same time.
+
 #### What is the most important problem developers are faced when using threads?
+Deadlocks
+
 #### In what kind of situations can deadlocks occur?
+Mutual Exclusion : At least one unsharable resource - processes claim exclusive control of resources they need 
+
+Hold and Wait : Process holds one resource while waiting for another 
+
+No Preemption : Resources only released voluntarily - no interruption possible (i.e. cannot be forcefully withdrawn by another process) 
+
+Circular Wait : Circular chain of processes - each waiting for a resource held by another 
+
 #### What are possible ways to prevent deadlocks from occurring?
+Using the wait – die scheme method or wound – wait scheme.
+
 #### What does critical section or critical region mean in the context of concurrent programming?
+In concurrent programming, concurrent accesses to shared resources can lead to unexpected or erroneous behavior, so parts of the program where the shared resource is accessed need to be protected in ways that avoid the concurrent access. This protected section is the critical section or critical region.
+
