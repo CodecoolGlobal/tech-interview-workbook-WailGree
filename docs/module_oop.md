@@ -700,6 +700,751 @@ Java Annotations allow us to add metadata information into our source code, alth
 
 - Runtime instructions: We can define annotations to be available at runtime which we can access using java reflection and can be used to give instructions to the program at runtime.
 
+### C&#35;
+
+#### Explain the purpose of IL and how does it relate to CLR?
+**IL** also known as Common intermediate language  or Microsoft intermediate language (MSIL).
+
+**IL** code is a CPU independent partially half compiled code.
+
+.Net platform has got many different programming languages like C#, VB.NET, J#, VC++ and etal. These languages have their own respective compilers, for example C# language has got cse.exe compiler and VB.NET has got vbc.exe compiler. So when we write our code in any specific language like (for eg C# language) and compiles the code, respective compiler (i.e. cse.exe compiler) take the action and compiles the c-sharp code into partially half compiled code. This half partially compiled code is known as IL code.
+
+**CLR** (Common Language Runtime) is the heart of .Net Framework. The core function of dotnet framework is to execute application and to convert Managed code to native code.
+
+It provides a number of services, including the following:
+1. Code management (loading and execution)
+2. Application memory isolation 
+3. Verification of type safety
+4. Conversion of IL to native code using JIT(Just in-time compiler)
+5. Access to metadata (enhanced type information)
+6. Managing memory for managed objects (garbage collection).
+7. Enforcement of code access security (CAS)
+8. Exception handling, including cross-language exceptions
+9. Interoperation between managed code, COM objects, and pre-existing DLLs (unmanaged code and data)
+10. Automation of object layout
+11. Support for developer services (profiling, debugging).
+
+#### What does “managed code” mean?
+Code which is runs on CLR environment is called as **managed code**.
+
+Code which does not runs on CLR environment is called as **unmanaged code**.
+
+#### What is an assembly?
+An assembly is the compiled output of your code, typically a DLL, but your EXE is also an assembly. It's the smallest unit of deployment for any .NET project.
+
+The assembly typically contains .NET code in MSIL (Microsoft Intermediate language) that will be compiled to native code ("JITted" - compiled by the Just-In-Time compiler) the first time it is executed on a given machine. That compiled code will also be stored in the assembly and reused on subsequent calls.
+
+#### What is the difference between an EXE and a DLL?
+EXE:
+
+1. It's an executable file.
+2. When loading an executable, no export is called, but only the module entry point.
+3. When a system launches new executable, a new process is created.
+4. The entry thread is called in context of main thread of that process.
+
+DLL:
+
+1. It's a Dynamic Link Library
+2. Is used by other applications.
+3. Can be reused by other applications while an EXE cannot.
+4. The system loads a DLL into the context of an existing process.
+5. would share the same process and memory space of the calling application while an EXE creates its separate process and memory space.
+
+#### What is strong-typing versus weak-typing? Which is preferred? Why?
+Strong typing: It checks the type of variables as soon as possible, usually at compile time. It prevents mixing operations between mismatched types.
+
+A strong-typed programming language is one in which:
+
+1. All variables (or data types) are known at compile time
+2. There is strict enforcement of typing rules (a String can't be used where an Integer would be expected)
+3. All exceptions to typing rules results in a compile time error
+
+**Weak typing** is delaying checking the types of the system as late as possible, usually to run-time. In this you can mix types without an explicit conversion.
+
+A "weak-typed" programming language is simply one which is not strong-typed.
+
+which is preferred depends on what you want. For scripts for an example you will usually want weak typing, because you want to write as much less code as possible. In big programs, strong typing can reduce errors at compile time.
+
+#### What is a namespace?
+**Namespaces** are heavily used in C# programming in two ways. First:
+```C#
+using System
+
+
+System.Console.WriteLine("Hello World!");
+```
+System is a namespace and Console is a class in that namespace.
+
+Second, declaring your own namespaces can help you control the scope of class and method names in larger programming projects. 
+Use the namespace keyword to declare a namespace, as in the following example:
+ ```C#
+namespace SampleNamespace
+{
+    class SampleClass
+    {
+        public void SampleMethod()
+        {
+            System.Console.WriteLine(
+              "SampleMethod inside SampleNamespace");
+        }
+    }
+}
+```
+
+#### Explain sealed class in C#
+**Sealed classes** are used to restrict the inheritance feature of object oriented programming. Once a class is defined as a sealed class, this class cannot be inherited.
+
+In C#, the sealed modifier is used to declare a class as sealed. The main purpose of a sealed class is to take away the inheritance feature from the class users so they cannot derive a class from it. One of the best usage of sealed classes is when you have a class with static members.
+
+```C#
+// Sealed class  
+sealed class SealedClass  
+{  
+}
+```
+
+You can also use the sealed modifier on a method or a property that overrides a virtual method or property in a base class. This enables you to allow classes to derive from your class and prevent other developers that are using your classes from overriding specific virtual methods and properties.
+
+```C#
+class X  
+{  
+    protected virtual void F()  
+    {   
+        Console.WriteLine("X.F");   
+    }  
+    protected virtual void F2()  
+    {  
+        Console.WriteLine("X.F2");   
+    }  
+}  
+class Y : X  
+{  
+    sealed protected override void F()  
+    {  
+        Console.WriteLine("Y.F");  
+    }  
+    protected override void F2()  
+    {  
+        Console.WriteLine("X.F3");  
+    }  
+}  
+class Z : Y  
+{  
+    // Attempting to override F causes compiler error CS0239.  
+    //   
+    protected override void F()  
+    {  
+         Console.WriteLine("C.F");   
+    }  
+    // Overriding F2 is allowed.   
+    protected override void F2()  
+    {  
+        Console.WriteLine("Z.F2");   
+    }  
+}  
+```
+
+#### What is explicit vs. implicit conversion? Give examples of both of them.
+[source](https://www.pluralsight.com/guides/explicit-implicity-type-casting-the-difference)
+
+There are two main types of programming languages. The first one is statically typed, the second one is dynamically typed. Dynamic typing is sometimes also called Duck typing. There is a famous story verb for that.
+```
+If it looks like a duck, swims like a duck, and quacks like a duck, then it probably is a duck.
+```
+
+ In C#, when a variable is declared it cannot be declared again or assigned a value of another type unless that type is implicitly convertible to the given variable type. That's static typed.
+ There are 2 types of conversions. Implicit and Explicit.
+
+In **implicit conversion** there is no special syntax, this is the safest type of casting. No data is lost, for example, when converting from smaller to larger integral types or derived classes to base classes.
+
+Example (numeric datatypes):
+```C#
+int number = 128;
+double bigger = number;
+```
+
+Example (class to base-class):
+```C#
+DerivedClass d = new DerivedClass();
+BaseClass b = d;
+```
+There are a number of conversion sub-types which are all considered implicit.
+
+1. Identity conversions
+2. Implicit numeric conversions
+3. Implicit enumeration conversions
+4. Implicit nullable conversions
+5. Null literal conversions
+6. Implicit reference conversions
+7. Boxing conversions
+8. Implicit dynamic conversions
+9. Implicit constant expression conversions
+10. User-defined implicit conversions
+11. Anonymous function conversions
+12. Method group conversions
+
+
+**Explicit conversion** also involves a **cast** operator. The process is usually associated with information loss or failure to convert between types.
+
+Example (numeric datatypes):
+```C#
+double mypi = 3.14;
+int a;
+a = (int)mypi;
+```
+
+Example (base class to a derived class):
+```C#
+Opel o = new Opel();
+Car c = o;
+Opel oo = (Opel)c;
+```
+
+#### Is a struct stored on the heap or stack?
+While there are similarities aplenty between a class and a struct, there are some distinct differences too. Most importantly, a struct unlike a class, is a value type. So, while instances of a class are stored in the heap, instances of a struct are <u>stored in the stack</u>. 
+
+When an instance of a struct is passed to a method, it is always passed by value. This is in contrast to what happens when we pass an instance of a class to a method -- the instance is passed by reference.
+#### Can a struct have methods?
+One major difference between a struct and a class is that unlike a class, a struct doesn't support inheritance -- you cannot have a struct that extends another class or a struct. However, similar to a class a struct can implement an interface. So the answer is yes.
+
+#### Can DateTimes be null?
+DateTime is a value type, which, just like int and double, has no meaningful null value.
+
+#### List out the differences between Array and ArrayList in C#
+|                                           Array                                            |                                                                      ArrayList                                                                      |
+| :----------------------------------------------------------------------------------------: | :-------------------------------------------------------------------------------------------------------------------------------------------------: |
+|            An Array is strongly-typed. We can store only the same type of data.            | ArrayList is a non-generic collection type. ArrayList's internal Array is of the object type. So, we can store multiple types of data in ArrayList. |
+|                          Array stores a fixed number of elements.                          |           ArrayList is dynamic in term of capacity. If the number of element exceeds, ArrayList will increase to double its current size.           |
+|                     Array provides better performance than ArrayList.                      |                      If we are using a large number of ArrayList then it degrades performance because of boxing and unboxing.                       |
+|           Array uses static helper class Array which belongs to system namespace           |                      ArrayList implements an IList interface so, it provides a method that we can use for easy implementation.                      |
+|                             Array belongs to namespace System                              |                                                  ArrayList belongs to namespace System.Collection                                                   |
+|                               The Array cannot accept null.                                |                                                              An Array can accept null.                                                              |
+| Example:<br>`string[] array1=new string[5];`<br>`array1[0]=”Hello”;`<br>`array1[1]=”Bye”;` |              Example:<br>`ArrayList a1=new ArryList();`<br>`a1.add(null);`<br>`a1.insert(1,”hi”);`<br>`a1.add(3);`<br>`a1.add(8.23);`               |
+
+#### How is the using() pattern useful? What is IDisposable? How does it support deterministic finalization?
+The using() pattern is useful because it ensures that Dispose() will always be called when a disposable object (defined as one that implements IDisposable, and thus the Dispose() method) goes out of scope, even if it does so by an exception being thrown, and thus that resources are always released.
+
+#### How can you make sure that objects using dedicated resources (database connection, files, hardware, OS handle, etc.) are released as early as possible?
+For the majority of the objects that your app creates, you can rely on the .NET garbage collector to handle memory management. However, when you create objects that include unmanaged resources, you must explicitly release those resources when you finish using them. The most common types of unmanaged resources are objects that wrap operating system resources, such as files, windows, network connections, or database connections. Although the garbage collector is able to track the lifetime of an object that encapsulates an unmanaged resource, it doesn't know how to release and clean up the unmanaged resource.
+
+1. Implement the dispose pattern. This requires that you provide an IDisposable.Dispose implementation to enable the deterministic release of unmanaged resources. A consumer of your type calls Dispose when the object (and the resources it uses) are no longer needed. The Dispose method immediately releases the unmanaged resources.
+
+2. In the event that a consumer of your type forgets to call Dispose, provide a way for your unmanaged resources to be released.
+
+#### Why to use keyword “const” in C#? Give an example.
+You use the const keyword to declare a constant field or a constant local. Constant fields and locals aren't variables and may not be modified. Constants can be numbers, Boolean values, strings, or a null reference. Don’t create a constant to represent information that you expect to change at any time. For example, don’t use a constant field to store the price of a service, a product version number, or the brand name of a company. These values can change over time, and because compilers propagate constants, other code compiled with your libraries will have to be recompiled to see the changes.
+
+#### What is the difference between “const” and “readonly” variables in C#?
+[source](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/const)
+[source](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/keywords/readonly)
+
+`const` fields and locals aren't variables and may not be modified. 
+Readonly fields on the other hand can be modified. `readonly` indicates that assignment to the field can only occur as part of the declaration or in a constructor in the same class. A readonly field can be assigned and reassigned multiple times within the field declaration and constructor.
+
+```C#
+public class SamplePoint
+{
+    public int x;
+    // Initialize a readonly field
+    public readonly int y = 25;
+    public readonly int z;
+
+    public SamplePoint()
+    {
+        // Initialize a readonly instance field
+        z = 24;
+    }
+
+    public SamplePoint(int p1, int p2, int p3)
+    {
+        x = p1;
+        y = p2;
+        z = p3;
+    }
+
+    public static void Main()
+    {
+        SamplePoint p1 = new SamplePoint(11, 21, 32);   // OK
+        Console.WriteLine($"p1: x={p1.x}, y={p1.y}, z={p1.z}");
+        SamplePoint p2 = new SamplePoint();
+        p2.x = 55;   // OK
+        Console.WriteLine($"p2: x={p2.x}, y={p2.y}, z={p2.z}");
+    }
+    /*
+     Output:
+        p1: x=11, y=21, z=32
+        p2: x=55, y=25, z=24
+    */
+}
+```
+
+#### What is a property in C#?
+[source](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/classes-and-structs/properties)
+
+A property is a member that provides a flexible mechanism to read, write, or compute the value of a private field. Properties can be used as if they are public data members, but they are actually special methods called accessors. This enables data to be accessed easily and still helps promote the safety and flexibility of methods.
+
+Properties overview:
+
+1. Properties enable a class to expose a public way of getting and setting values, while hiding implementation or verification code.
+2. A get property accessor is used to return the property value, and a set property accessor is used to assign a new value. These accessors can have different access levels. For more information, see Restricting Accessor Accessibility.
+3. The value keyword is used to define the value being assigned by the set accessor.
+4. Properties can be read-write (they have both a get and a set accessor), read-only (they have a get accessor but no set accessor), or write-only (they have a set accessor, but no get accessor). Write-only properties are rare and are most commonly used to restrict access to sensitive data.
+5. Simple properties that require no custom accessor code can be implemented either as expression body definitions or as auto-implemented properties.
+ 
+#### List out two different types of errors in C#
+1. Syntax Error<br>
+These errors are mainly occurred due to the mistakes while typing or do not follow the syntax of the specified programming language. These mistakes are generally made by beginners only because they are new to the language. These errors can be easily debugged or corrected.
+2. Run-time Error<br>
+Sometimes the errors exist during the execution-time even after the successful compilation known as run-time errors. When the program is running, and it is not able to perform the operation is the main cause of the run-time error. The division by zero is the common example of the run-time error. These errors are very difficult to find, as the compiler does not point to these errors. 
+
+#### What is the difference between “out” and “ref” parameters in C#?
+[source](https://www.geeksforgeeks.org/difference-between-ref-and-out-keywords-in-c-sharp/)
+
+The **out** is a keyword in C# which is used for the passing the arguments to methods as a reference type. It is generally used when a method returns multiple values.
+```C#
+using System; 
+
+class GFG {
+	static public void Main() 
+	{ 
+		// Declaring variable 
+		// without assigning value 
+		int G; 
+
+		// Pass variable G to the method 
+		// using out keyword 
+		Sum(out G); 
+
+		// Display the value G 
+		Console.WriteLine("The sum of" + 
+				" the value is: {0}", G); 
+	} 
+
+	// Method in which out parameter is passed 
+	// and this method returns the value of 
+	// the passed parameter 
+	public static void Sum(out int G) 
+	{ 
+		G = 80; 
+		G += G; 
+	} 
+} 
+```
+```
+Output:
+The sum of the value is: 160
+```
+
+The **ref** is a keyword in C# which is used for the passing the arguments by a reference. Or we can say that if any changes made in this argument in the method will reflect in that variable when the control return to the calling method.
+
+```C#
+using System; 
+
+class GFG {
+	public static void Main() 
+	{ 
+
+		// Assign string value 
+		string str = "Geek"; 
+
+		// Pass as a reference parameter 
+		SetValue(ref str); 
+
+		// Display the given string 
+		Console.WriteLine(str); 
+	} 
+
+	static void SetValue(ref string str1) 
+	{ 
+
+		// Check parameter value 
+		if (str1 == "Geek") { 
+			Console.WriteLine("Hello!!Geek"); 
+		} 
+
+		// Assign the new value 
+		// of the parameter 
+		str1 = "GeeksforGeeks"; 
+	} 
+} 
+```
+```
+Output:
+Hello!!Geek
+GeeksforGeeks
+```
+
+|                                                              ref                                                               |                                               out                                                |
+| :----------------------------------------------------------------------------------------------------------------------------: | :----------------------------------------------------------------------------------------------: |
+|                            It is necessary the parameters should initialize before it pass to ref.                             |               It is not necessary to initialize parameters before it pass to out.                |
+|               It is not necessary to initialize the value of a parameter before returning to the calling method.               |  It is necessary to initialize the value of a parameter before returning to the calling method.  |
+| The passing of value through ref parameter is useful when the called method also need to change the value of passed parameter. | The declaring of parameter through out parameter is useful when a method return multiple values. |
+|                                 When ref keyword is used the data may pass in bi-directional.                                  |                 When out keyword is used the data only passed in unidirectional.                 |
+
+#### Can we override private virtual method in C#?
+A virtual method is designed to use in derived class by override concept in C#. It would loose it's purpose. CLR doesn't allow private virtual methods either way. It's not possible.
+
+#### What's the difference between IEquatable and just overriding Object.Equals()?
+The main reason is **performance**. When generics were introduced in .NET 2.0 they were able to add a bunch of neat classes such as List<T>, Dictionary<K,V>, HashSet<T>, etc. These structures make heavy use of GetHashCode and Equals. But for value types this required boxing. IEquatable<T> lets a structure implement a strongly typed Equals method so no boxing is required. Thus much better performance when using value types with generic collections.
+
+#### Explain the differences between public, protected, private and internal. Explain access modifier – “protected internal” in C#!
+**public**: The type or member can be accessed by any other code in the same assembly or another assembly that references it.<br>
+**private**: The type or member can be accessed only by code in the same class or struct.<br>
+**protected**: The type or member can be accessed only by code in the same class, or in a class that is derived from that class.<br>
+**internal**: The type or member can be accessed by any code in the same assembly, but not from another assembly.<br>
+**protected internal**: The type or member can be accessed by any code in the assembly in which it's declared, or from within a derived class in another assembly.<br>
+**private protected**: The type or member can be accessed only within its declaring assembly, by code in the same class or in a type that is derived from that class.
+![pic](https://i.stack.imgur.com/ExkwO.png)
+#### What’s the difference between using `override` and `new` keywords when defining method in child class?
+**virtual**: indicates that a method may be overriden by an inheritor
+
+**override**: overrides the functionality of a virtual method in a base class, providing different functionality.
+
+**new**: hides the original method (which doesn't have to be virtual), providing different functionality. This should only be used where it is absolutely necessary.
+
+When you hide a method, you can still access the original method by up casting to the base class. This is useful in some scenarios, but dangerous.
+
+#### Explain StringBuilder class in C#!
+[source](https://docs.microsoft.com/en-us/dotnet/api/system.text.stringbuilder?view=net-5.0)
+
+Represents a mutable string of characters. This class cannot be inherited.
+
+```C#
+using System;
+using System.Text;
+
+public sealed class App
+{
+    static void Main()
+    {
+        // Create a StringBuilder that expects to hold 50 characters.
+        // Initialize the StringBuilder with "ABC".
+        StringBuilder sb = new StringBuilder("ABC", 50);
+
+        // Append three characters (D, E, and F) to the end of the StringBuilder.
+        sb.Append(new char[] { 'D', 'E', 'F' });
+
+        // Append a format string to the end of the StringBuilder.
+        sb.AppendFormat("GHI{0}{1}", 'J', 'k');
+
+        // Display the number of characters in the StringBuilder and its string.
+        Console.WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
+
+        // Insert a string at the beginning of the StringBuilder.
+        sb.Insert(0, "Alphabet: ");
+
+        // Replace all lowercase k's with uppercase K's.
+        sb.Replace('k', 'K');
+
+        // Display the number of characters in the StringBuilder and its string.
+        Console.WriteLine("{0} chars: {1}", sb.Length, sb.ToString());
+    }
+}
+
+// This code produces the following output.
+//
+// 11 chars: ABCDEFGHIJk
+// 21 chars: Alphabet: ABCDEFGHIJK
+```
+
+#### How we can sort the array elements in descending order in C#?
+We can either use for loops, or use Array class from System namespace. With that it's 2 lines:
+```C#
+Array.Sort(array);
+Array.Reverse(array);
+```
+
+#### Can you use a value type as a generic type argument in C#? For example when implementing an interface like (IEquatable).
+Unlike in Java, where you can't use value type(primitive type) as a generic type, in C# you can. 
+
+```C#
+using System;
+
+namespace Program
+{
+    public static class Program
+    {
+        public static void Main(string[] args)
+        {
+            int testVariable1 = 1;
+            int testVariable2 = 1;
+            Test<int> testObject = new Test<int>(testVariable1);
+            Console.WriteLine(testObject.Equals(testVariable2));
+            Console.ReadKey();
+        }
+    }
+
+    public class Test<T> : IEquatable<T>
+    {
+        private T Property { get; set; }
+
+        public Test(T property)
+        {
+            Property = property;
+        }
+
+        public bool Equals(T other)
+        {
+            return true;
+        }
+    }
+}
+```
+```
+Output:
+True
+```
+
+#### What are Nullable Types in C#?
+A **nullable value** type `T?` represents all values of its underlying value type `T` and an additional null value. For example, you can assign any of the following three values to a `bool?` variable: `true`, `false`, or `null`. An underlying value type `T` cannot be a nullable value type itself.
+Declaration:
+```C#
+bool? flag = null;
+
+// An array of a nullable value type:
+int?[] arr = new int?[10];
+```
+
+Usage:
+```C#
+int? a = 42;
+if (a is int valueOfA)
+{
+    Console.WriteLine($"a is {valueOfA}");
+}
+else
+{
+    Console.WriteLine("a does not have a value");
+}
+// Output:
+// a is 42
+```
+
+#### Conceptually, what is the difference between early-binding and late-binding?
+**Early binding** refers to events that occur at compile time.
+
+**Late binding** refers to function calls that are not resolved until run time. Virtual functions are used to achieve late binding.
+
+#### What is delegate, event, callback, multicast delegate?
+[source](https://www.codeproject.com/Articles/1061085/Delegates-Multicast-delegates-and-Events-in-Csharp#:~:text=Delegates%20are%20pointer%20to%20functions,Multicast%20are%20types%20of%20delegates.)
+
+![pic](https://www.codeproject.com/KB/cs/1061085/1.jpg)
+
+**Delegates** are pointer to functions and used for call back.
+**Multicast** delegates help to invoke multiple callbacks.
+**Events** encapsulate delegate and implement publisher and subscriber model.
+Events and Multicast are types of delegates. So delegate is the base for events and multicast.
+
+#### What is enum in C#?
+[source](https://www.w3schools.com/cs/cs_enums.asp)
+
+An **enum** is a special "class" that represents a group of constants (unchangeable/read-only variables).
+
+To create an enum, use the enum keyword (instead of class or interface), and separate the enum items with a comma:
+```C#
+enum Level 
+{
+  Low,
+  Medium,
+  High
+}
+```
+To access enum items use the dot syntax:
+```C#
+Level myVar = Level.Medium;
+Console.WriteLine(myVar);
+```
+
+#### What is null-conditional operator?
+[source](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/member-access-operators#null-conditional-operators--and-)
+
+A **null-conditional operator** applies a member access, `?.`, or element access, `?[]`, operation to its operand only if that operand evaluates to non-null; otherwise, it returns null. That is,
+
+1. If `a` evaluates to `null`, the result of `a?.x` or `a?[x]` is `null`.
+
+2. If `a` evaluates to non-null, the result of `a?.x` or `a?[x]` is the same as the result of `a.x` or `a[x]`, respectively.
+```C#
+double SumNumbers(List<double[]> setsOfNumbers, int indexOfSetToSum)
+{
+    return setsOfNumbers?[indexOfSetToSum]?.Sum() ?? double.NaN;
+}
+
+var sum1 = SumNumbers(null, 0);
+Console.WriteLine(sum1);  // output: NaN
+
+var numberSets = new List<double[]>
+{
+    new[] { 1.0, 2.0, 3.0 },
+    null
+};
+
+var sum2 = SumNumbers(numberSets, 0);
+Console.WriteLine(sum2);  // output: 6
+
+var sum3 = SumNumbers(numberSets, 1);
+Console.WriteLine(sum3);  // output: NaN
+```
+
+#### What is null-coalescing operator?
+[source](https://docs.microsoft.com/en-us/dotnet/csharp/language-reference/operators/null-coalescing-operator)
+
+The **null-coalescing operator** `??` returns the value of its left-hand operand if it isn't `null`; otherwise, it evaluates the right-hand operand and returns its result. The `??` operator doesn't evaluate its right-hand operand if the left-hand operand evaluates to non-null.
+```C#
+List<int> numbers = null;
+int? a = null;
+
+(numbers ??= new List<int>()).Add(5);
+Console.WriteLine(string.Join(" ", numbers));  // output: 5
+
+numbers.Add(a ??= 0);
+Console.WriteLine(string.Join(" ", numbers));  // output: 5 0
+Console.WriteLine(a);  // output: 0
+```
+
+#### What is serialization?
+[source](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/)
+
+Serialization is the process of converting an object into a stream of bytes to store the object or transmit it to memory, a database, or a file. Its main purpose is to save the state of an object in order to be able to recreate it when needed. The reverse process is called deserialization.
+
+![pic](https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/serialization/media/index/serialization-process.gif)
+
+Popular uses of serialization:
+1. JSON serialization
+2. XML serialization
+3. Basic serialization
+
+#### What is the difference between Finalize() and Dispose() methods?
+**Finalize** is the backstop method, called by the garbage collector when it reclaims an object.
+**Dispose** is the "deterministic cleanup" method, called by applications to release valuable native resources (window handles, database connections, etc.)
+
+As the user of an object, you always use Dispose. Finalize is for the GC.
+
+#### How do you inherit a class from another class in C#?
+You use the `:` syntax. For an example if class `A` would be the parental class of class `B`, it would look like this:
+```C#
+using System;
+
+namespace Program
+{
+    public static class Program
+    {
+        public static void Main(string[] args)
+        {
+            B.Greetings();
+        }
+    }
+
+    public class A
+    {
+        public static void Greetings()
+        {
+            Console.WriteLine("Greetings, kind Stranger!");
+        }
+    }
+    public class B : A
+    {
+    }
+}
+```
+
+#### What is difference between “is” and “as” operators in C#?
+[source](https://www.pluralsight.com/guides/csharp-is-as-operators-is-expressions)
+
+The **`is`** operator is used to check if the run-time type of an object is compatible with the given type or not, whereas the **`as`** operator is used to perform conversion between compatible reference types or nullable types.
+
+The `is` operator is of Boolean type, whereas the `as` operator is not.
+
+The `is` operator returns `true` if the given object is of the same type, whereas the `as` operator returns the object when they are compatible with the given type.
+
+The `is` operator returns false if the given object is not of the same type, whereas the `as` operator returns `null` if the conversion is not possible.
+
+The `is` operator is used for only reference, boxing, and unboxing conversions, whereas the `as` operator is used only for nullable, reference, and boxing conversions.
+
+#### What are indexers in C# .NET?
+**Indexers** allow instances of a class or struct to be indexed just like arrays. The indexed value can be set or retrieved without explicitly specifying a type or instance member. Indexers resemble properties except that their accessors take parameters.
+
+#### What is the difference between returning IQueryable<T> vs. IEnumerable<T>?
+The difference is that **IQueryable<T>** is the interface that allows LINQ-to-SQL (LINQ.-to-anything really) to work. So if you further refine your query on an IQueryable<T>, that query will be executed in the database, if possible.
+
+For the **IEnumerable<T>** case, it will be LINQ-to-object, meaning that all objects matching the original query will have to be loaded into memory from the database.
+
+#### What is LINQ? Explain the idea of extension methods.
+[source](https://www.tutorialsteacher.com/linq/what-is-linq)
+
+**LINQ** (Language Integrated Query) is uniform query syntax in C# and VB.NET to retrieve data from different sources and formats. It is integrated in C# or VB, thereby eliminating the mismatch between programming languages and databases, as well as providing a single querying interface for different types of data sources.
+
+For example, SQL is a Structured Query Language used to save and retrieve data from a database. In the same way, LINQ is a structured query syntax built in C# and VB.NET to retrieve data from different types of data sources such as collections, ADO.Net DataSet, XML Docs, web service and MS SQL Server and other databases.
+
+![pic](https://www.tutorialsteacher.com/Content/images/linq/linq-usage.PNG)
+
+LINQ provides standard query operators like filtering, sorting, grouping, aggregation, and concatenations, and it has many operators to achive many types of functionalities, which are called **extension methods**, in LINQ.
+
+![pic](https://csharpcorner.azureedge.net/article/linq-extension-methods/Images/1.png)
+
+#### What are the advantages and disadvantages of lazy loading?
+The best case use of lazy loading is a case where a user only accesses the root of your application or a single lazy loaded route and does not proceed to any lazy loaded routes.
+
+Should the user proceed to a lazy loaded route, the benefits of lazy loading start to diminish.
+
+1. Few seconds needed to fetch chunk from node server, bigger chunks may take more time: Simply put, lazy loaded routes need to perform network requests to fetch JS chunks. Network requests take time (no matter how fast) which results in few milliseconds where the application seems to be unresponsive.
+2. Complicates debugging: Errors such as an undefined method in a lazy loaded module will only appear in the console when the faulty chunks is loaded at run time.
+3. Loading chunk failed error which is caused by caching of application JS files by the browser which may lead to cache miss when newer versions are built because the chunk hash changes on every build.
+4. The app could crash or become unresponsive if the device goes offline for a few second: For example, consider what happens when the user looses internet connection?
+
+How to minimize negative effects of lazy loading:
+1. If possible, do not lazy load routes that are most frequently visited by your users.
+2. Keep your chunk sizes as small as possible (Only import what you need and keep shared modules as compact as possible).
+3. Use router states to show a loader or animation when a lazy loaded route is being fetched so they do not think your application lags. You can even handle cases when fetching the lazy loaded route fails e.g. Show a toast notification and redirect to a previously loaded route.
+4. Handle the “Loading chunk failed” error which is often caused by a browser cache miss and occurs on browsers that have previously cached JS files from your web application.
+
+#### How to use of “yield” keyword? Mention at least one practical scenario where it can be used?
+A function containing yield in return, returns an object that implements the IEnumerable<object> interface. If a calling function starts foreaching over this object, the function is called again until it "yields". This is syntactic sugar introduced in C# 2.0. In earlier versions you had to create your own IEnumerable and IEnumerator objects to do stuff like this.
+In other words:
+Iteration. It creates a state machine "under the covers" that remembers where you were on each additional cycle of the function and picks up from there.
+```C#
+public void Consumer()
+{
+    foreach(int i in Integers())
+    {
+        Console.WriteLine(i.ToString());
+    }
+}
+
+public IEnumerable<int> Integers()
+{
+    yield return 1;
+    yield return 2;
+    yield return 4;
+    yield return 8;
+    yield return 16;
+    yield return 16777216;
+}
+```
+#### What are attributes in C#? Give some examples of usage of them.
+**Attributes** provide a powerful method of associating metadata, or declarative information, with code (assemblies, types, methods, properties, and so forth). After an attribute is associated with a program entity, the attribute can be queried at run time by using a technique called reflection.
+
+Attributes have the following properties:
+
+1. Attributes add metadata to your program. Metadata is information about the types defined in a program. All .NET assemblies contain a specified set of metadata that describes the types and type members defined in the assembly. 
+2. You can add custom attributes to specify any additional information that is required. For more information, see, Creating Custom Attributes (C#).
+3. You can apply one or more attributes to entire assemblies, modules, or smaller program elements such as classes and properties.
+Attributes can accept arguments in the same way as methods and properties.
+4. Your program can examine its own metadata or the metadata in other programs by using reflection.
+
+#### By what mechanism does NUnit know what methods to test?
+WIP
+
+Nunit uses attributes to determine what are tests, what/how should be ran.
+
+#### What is the GAC? What problem does it solve?
+WIP
+
+It's a way to keep DLLs globally accessible without worrying about conflicts. No more DLL Hell. Each architecture and version gets it's own place to live.
+
+It also gets it own way to browse it in Explorer, so if you go to `C:\Windows\assembly` in windows explorer it lists all the DLLs.
+#### What is the largest number you can work with in C#?
+2^31 - 1
+But, the BigInteger type is an immutable type that represents an arbitrarily large integer whose value in theory has no upper or lower bounds. (You can go as far as your RAM lets you).
 
 ### Database
 
@@ -716,7 +1461,7 @@ Connections are a key concept in data-centric programming. Since some DBMSs requ
 **Pooling:**<br> 
 Database connections are finite and expensive and can take a disproportionately long time to create relative to the operations performed on them. It is very inefficient for an application to create and close a database connection whenever it needs to update a database. Connection pooling is a technique designed to alleviate this problem. A pool of database connections is created and then shared among the applications that need to access the database. When an application needs database access, it requests a connection from the pool. When it is finished, it returns the connection to the pool, where it becomes available for use by other applications. This approach encourages the practice of opening a connection in an application only when needed, and closing it as soon as the work is done, rather than holding a connection open for the entire life of the application. In this manner, a relatively small number of connections can service a large number of requests. 
 
-In a client–server architecture, on the other hand, a persistent connection is typically used so that server state can be managed. This "state" includes server-side cursors, connection-specific functional settings, and so on. Examples to connect to db: Psycopg2 in Python and JDBC in Java.
+In a client–server architecture, on the other hand, a persistent connection is typically used so that server state can be managed. This "state" includes server-side cursors, connection-specific functional settings, and so on.Examples to connect to db: Psycopg2 in Python and JDBC in Java.
 
 #### What do you know about database normalization?
 Database normalization is the process of structuring a relational database in accordance with a series of so-called normal forms in order to reduce data redundancy and improve data integrity. Normalization entails organizing the columns (attributes) and tables (relations) of a database to ensure that their dependencies are properly enforced by database integrity constraints. 
