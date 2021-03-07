@@ -1094,6 +1094,7 @@ The main reason is **performance**. When generics were introduced in .NET 2.0 th
 **internal**: The type or member can be accessed by any code in the same assembly, but not from another assembly.<br>
 **protected internal**: The type or member can be accessed by any code in the assembly in which it's declared, or from within a derived class in another assembly.<br>
 **private protected**: The type or member can be accessed only within its declaring assembly, by code in the same class or in a type that is derived from that class.
+
 ![pic](https://i.stack.imgur.com/ExkwO.png)
 #### What’s the difference between using `override` and `new` keywords when defining method in child class?
 **virtual**: indicates that a method may be overriden by an inheritor
@@ -1378,6 +1379,8 @@ For example, SQL is a Structured Query Language used to save and retrieve data f
 ![pic](https://www.tutorialsteacher.com/Content/images/linq/linq-usage.PNG)
 
 LINQ provides standard query operators like filtering, sorting, grouping, aggregation, and concatenations, and it has many operators to achive many types of functionalities, which are called **extension methods**, in LINQ.
+
+**Extension methods** enable you to "add" methods to existing types without creating a new derived type, recompiling, or otherwise modifying the original type. Extension methods are static methods, but they're called as if they were instance methods on the extended type. For client code written in C#, F# and Visual Basic, there's no apparent difference between calling an extension method and the methods defined in a type.
 
 ![pic](https://csharpcorner.azureedge.net/article/linq-extension-methods/Images/1.png)
 
